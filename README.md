@@ -1,7 +1,12 @@
 # LittleLemon
 Back-end developer certification capstone project.
 
---- HOW TO SET UP ---
+## API Paths
+---
+* /restaurant/menu/
+* /restaurant/api/booking/tables/
+
+## --- HOW TO SET UP ---
 
 I used venv to handle the environment for this project. You will need to create your own virtual environment and follow the steps below.
 
