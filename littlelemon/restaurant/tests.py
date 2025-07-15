@@ -1,5 +1,5 @@
 from django.test import TestCase
-from restaurant.models import Menu
+from restaurant.models import Menu, Booking
 from decimal import Decimal
 # Create your tests here.
 
@@ -25,3 +25,18 @@ class MenuViewTest(TestCase):
         self.assertEqual(menu_items.count(), 2)
         self.assertEqual(menu_items[0].Title, "Brownie")
         self.assertEqual(menu_items[1].Title, "Bone Soup")
+
+class BookingTest(TestCase):
+    def setUp(self):
+        self.obj1 = Booking.objects.create(Name="Gary", No_of_guests=2, Booking_date="2025-07-15")
+
+    def test_booking_creation(self):
+        bookings = Booking.objects.all()
+
+        self.assertEqual(bookings.count(), 1)
+        self.assertEqual(bookings[0].Name, "Gary")
+        self.assertEqual(bookings[0].No_of_guests, 2)
+
+        booking1 = bookings[0]
+        booking1_str = str(booking1)
+        self.assertEqual(booking1_str, "Gary : 2025-07-15")
